@@ -1,0 +1,164 @@
+import React, { useState } from 'react';
+
+const Home = () => {
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const imageFile = event.dataTransfer.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      setUploadedImage(e.target.result);
+    };
+
+    reader.readAsDataURL(imageFile);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleDelete = () => {
+    setUploadedImage(null);
+  };
+
+  return (
+    <div className="App">
+      <header className='App-header'>
+      <h1>Home Page</h1>
+      </header>
+      <div
+        style={{
+          margin: '20px',
+          border: '2px dashed #aaa',
+          padding: '20px',
+          textAlign: 'center',
+        }}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+      >
+        {uploadedImage ? (
+          <div>
+            <img className='App-photo'
+              src={uploadedImage}
+              alt="Uploaded"
+              style={{ maxWidth: '40%' }}
+            />
+            <button
+              style={{
+                position: 'relative',
+                bottom: '10px',
+                right: '10px',
+                padding: '5px 10px',
+              }}
+              className='Home-delButton'
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
+          </div>
+        ) : (
+          <p>Drag and drop an image here</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+
+
+
+
+<div className="instagram-posts-container">
+<div className="instagram-posts">
+  {instagramPosts.map((image, index) => (
+  <div className="instagram-post" key={index}>
+    <img src={image} alt={`Image ${index + 1}`} />
+  </div>
+  ))}
+</div>
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Login from './components/Login';
+import NoPage from './components/NoPage';
+import photo from './images/logo hme transparent.png';
+
+import './App.css';
+
+import { authenticateUser } from './AuthService';
+
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = (username, password) => {
+    if (authenticateUser()) {
+      setIsLoggedIn(true);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    window.location.href = '/'; // Redirect to login page after logout
+  };
+
+  return (
+    <Router>
+      <div className="App-header">
+        {!isLoggedIn ? null : (
+          <img src={photo} alt="Photo" className="App-logo" />
+        )}
+
+        <nav>
+          <ul>
+            {!isLoggedIn ? null : (
+              <>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      </div>
+
+      <Routes>
+        {!isLoggedIn ? (
+          <Route path="/" element={<Login handleLogin={handleLogin} />} />
+        ) : (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </>
+        )}
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
+
+
+
+
+
+#Sidebar:hover + #Sidebar-link {
+  opacity: 100%;  
+}

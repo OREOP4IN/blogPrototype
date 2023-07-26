@@ -1,0 +1,334 @@
+/* ---------------------texts--------------------- */
+.App {
+  color: rgb(242, 241, 255);
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 20vw;
+
+}
+.App-header {
+  background-color: #393e47;
+  min-height: 10vh;
+  max-width: 50vh;
+
+  text-shadow: 2px 2px rgb(113, 114, 114);
+  box-shadow: 5px 5px 2px rgb(76, 104, 116);
+  
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  
+  justify-content: left;
+  font-size: calc(1em);
+  color: rgb(242, 241, 255);
+  
+  /* padding-top: 10vh; */
+
+  border-radius: 10px;
+  padding: 3px;
+  
+  text-align: left;
+
+  
+
+  margin: 10px;
+  padding-left: calc(1.5vw + 10px);
+  
+}
+
+.App-content {
+  color: #f5fdff;
+  text-shadow: 2px 1px 2px rgba(113, 114, 114, 0.712);
+
+  margin: 1em 2em;
+  margin-right: 8em;
+
+  justify-content: center;
+  text-align: justify;
+
+  overflow-y:visible;
+}
+
+
+
+ .App-default-container {
+  height: 100%;
+} 
+
+.App-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-left: 20vw;
+  overflow-y: auto;
+}
+
+.App-link {
+  color: #f5fdff;
+}
+
+.App-read {
+  color: #f5fdff;
+  background-color: transparent;
+  min-width: 8vw;
+  
+  border-radius: 10px;
+  padding: 2px 4px;
+  width: 6em;
+}
+.Sidebar {
+  background-color: #393e47;
+  height: 100%;
+  max-width: 4vw;
+  
+  display: flex;
+  flex-direction: column;
+  
+  align-items: left;
+
+  padding: 0 2vw;
+
+  position:absolute;
+  left: 0px;
+  width: 100%;
+
+  text-shadow: 2px 1px 2px rgba(113, 114, 114, 0.712);
+
+  transition-property: max-width;
+  transition-duration: 1s;
+}
+
+.Sidebar:hover {
+  max-width: 10vw;
+}
+
+
+
+.Sidebar-icon {
+  min-width: 50px;
+  align-self: left;
+}
+
+
+.Sidebar-link {
+  opacity: 0%;
+  transition: opacity 1s ease;
+}
+
+.Sidebar-link:hover {
+  opacity: 100%;
+} 
+
+.App-footer {
+  background-color: #393e47;
+  max-height: 10vh;
+  min-width: 90vw;
+  
+  font-size: calc(1em);
+  color: rgb(242, 241, 255);
+
+  position:absolute;
+  bottom:0cqmax;
+  overflow-y: hidden;
+  left: 0;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+
+  transition-property: max-height;
+  transition-duration: 2s;
+  /* margin: 0vh 1vw; */
+}
+
+.App-footer:hover {
+  max-height: 30vh;
+  bottom:0cqmax;
+}
+
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-column {
+  width: 45%;
+  padding: 0 1vw;
+  
+}
+
+.contact-left {
+  text-align: left;
+}
+
+.contact-right {
+  text-align: right;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #f5fdff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* ---------------------login--------------------- */
+
+.Login-form {
+  padding-left: 5px;
+  margin-left: 10px;
+}
+
+.Log-button {
+  align-self: left;
+  padding-left: 5px;
+  margin-left: 10px;
+  padding: 2px;
+  width: calc(20px + 6vw);
+  color: rgb(242, 241, 255);
+  background-color: transparent;
+}
+
+/* ---------------------profile--------------------- */
+
+.Profile-container {
+  display: flex;
+  align-items: left;
+  text-shadow: 2px 1px 2px rgba(113, 114, 114, 0.712);
+}
+
+.Profile-picture {
+  position: absolute;
+  padding-left: 2vw;
+  padding-top: 2vh;  
+}
+
+.Profile-data {
+  padding-right: 10vw;
+  max-width: 50vw;
+  text-align: justify;
+  position: relative;
+  top: 1vh;
+  left: calc(200px + 5vw);
+}
+
+.Profile-content {
+  padding-right: 0vw;
+  text-align: justify;
+  position: relative;
+  top: 0vh;
+  left: 0vw;
+}
+
+/* ---------------------media--------------------- */
+
+.App-photo {
+  height: 20vw;
+  pointer-events: none;
+
+  align-items: center;
+  align-self: center;
+
+  /* margin-top: 5vh; */
+  
+}
+
+.App-logo {
+
+  flex: 0;
+
+  max-height: 10vh;
+  pointer-events: none;
+
+  align-self: right;
+
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  margin-top: 5vh;
+  margin-left: 80vw;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------media-projects--------------------- */
+
+.Projects-container {
+  width: calc(100% - 2vw);  
+  height: fit-content;
+  
+  overflow-x: scroll;
+
+  margin-left:2vw;
+  display: flex;
+  position: relative;
+}
+
+.Projects-poster {
+  display: flex;
+}
+
+.Projects-img {
+  height: 270px;
+  width: auto;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.Projects-img:last-child {
+  margin-right: 0;
+}
+
+/* ---------------------media--------------------- */
+
+.instagram-posts-container {
+  width: calc(100% - 2vw);  
+  height: fit-content;
+  
+  overflow-x: scroll;
+
+  margin-left:2vw;
+  display: flex;
+  position: relative;
+}
+
+.instagram-posts {
+  display: flex;
+}
+
+.instagram-post {
+  height: 250px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.instagram-post:last-child {
+  margin-right: 0;
+}
